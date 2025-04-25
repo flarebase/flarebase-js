@@ -1,0 +1,30 @@
+{
+  "name": "@flarebase/flarebase-js",
+  "description": "Flarebase JavaScript Client for Flarebase",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "flarebase"
+  ],
+  "homepage": "https://github.com/flarebase/flarebase-js",
+  "bugs": "https://github.com/flarebase/flarebase-js/issues",
+  "author": "Flarebase",
+  "repository": "flarebase/flarebase-js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "bun run clean && bun tsc"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
