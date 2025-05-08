@@ -12,9 +12,9 @@ export type FlarebaseClientOptions = {
 }
 
 export type GenericRelationship = {
-    foreignKeyName: string
-    columns: string[]
-    referencedTable: string
+    constraintName: string
+    localColumns: string[]
+    referencedTableName: string
     referencedColumns: string[]
     isOneToOne?: boolean
 }
