@@ -2,6 +2,7 @@ import { fetchWithAuth } from "./lib/fetch";
 import { applySettingDefaults } from "./lib/helper";
 import type { Fetch, FlarebaseClientOptions, GenericDatabase } from "./lib/types";
 import { DatabaseClient } from "@flarebase/database-js";
+import { StorageClient } from "@flarebase/storage-js";
 
 /**
  * Flarebase Client
@@ -47,6 +48,13 @@ export default class FlarebaseClient<
         return new DatabaseClient<Database>(this.databaseUrl, {
             headers: this.headers,
             fetch: this.fetch,
+        });
+    }
+
+    get storage(): StorageClient {
+        return new StorageClient(this.storageUrl, {
+            headers: this.headers,
+            customFetch: this.fetch,
         });
     }
 }
