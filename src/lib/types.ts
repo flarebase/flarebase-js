@@ -5,10 +5,11 @@ export type FlarebaseClientOptions = {
         fetch?: Fetch
         headers?: Record<string, string>
     },
+    env?: 'dev' | 'stg' | 'prod' | '',
     localDev?: {
         databaseUrl?: string
         storageUrl?: string
-    }
+    },
 }
 
 export type GenericRelationship = {

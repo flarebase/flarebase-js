@@ -11,6 +11,7 @@ export function applySettingDefaults(
         global: {
             ...globalOptions,
         },
+        env: '',
         localDev: {},
     }
 

@@ -33,7 +33,10 @@ export default class FlarebaseClient<
             if (!databaseName) throw new Error("databaseName is required");
             if (!apiKey) throw new Error("apiKey is required");
 
-            const baseUrl = `https://${pid}.flarebase.com/v1`;
+            let baseUrl = `https://${pid}.flarebase.com/v1`;
+            if (["dev", "staging"].includes(options?.env ?? "")) {
+                baseUrl = `https://${pid}.flarebase.com/${options?.env}/v1`;
+            }
 
             this.databaseUrl = `${baseUrl}/database/${databaseName}`;
             this.storageUrl = `${baseUrl}/storage`;
