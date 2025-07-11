@@ -1,30 +1,45 @@
 {
-  "name": "@flarebase/flarebase-js",
+  "name": "@flarebasejs/flarebase-js",
+  "version": "0.0.1",
   "description": "Flarebase JavaScript Client for Flarebase",
+  "author": "Flarebase",
+  "homepage": "https://github.com/flarebase/flarebase-js",
+  "repository": "flarebase/flarebase-js",
+  "bugs": "https://github.com/flarebase/flarebase-js/issues",
   "keywords": [
     "javascript",
     "typescript",
-    "flarebase"
+    "flarebase",
+    "sdk"
   ],
-  "homepage": "https://github.com/flarebase/flarebase-js",
-  "bugs": "https://github.com/flarebase/flarebase-js/issues",
-  "author": "Flarebase",
-  "repository": "flarebase/flarebase-js",
+  "exports": {
+    ".": {
+      "types": "./dist/cjs/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "bun run clean && bun tsc"
+    "build": "pnpm run clean && pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc -p tsconfig.commonjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "docs": "typedoc src/index.ts --out docs/v1",
+    "test": "vitest",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "type-check": "tsc --noEmit",
+    "prepublish": "pnpm run build && pnpm run test && pnpm run type-check"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+    "@nyxb/eslint-config": "^3.1.0",
+    "eslint": "^9.27.0",
+    "typedoc": "^0.28.4"
   }
 }
