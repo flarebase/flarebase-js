@@ -1,32 +1,32 @@
 export type Fetch = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
-export type FlarebaseClientOptions = {
-    global?: {
-        fetch?: Fetch
-        headers?: Record<string, string>
-    },
-    env?: 'dev' | 'stg' | 'prod' | '',
-    localDev?: {
-        databaseUrl?: string
-        storageUrl?: string
-    },
+export interface FlarebaseClientOptions {
+  global?: {
+    fetch?: Fetch;
+    headers?: Record<string, string>;
+  };
+  env?: 'dev' | 'stg' | 'prod' | '';
+  localDev?: {
+    databaseUrl?: string;
+    storageUrl?: string;
+  };
 }
 
-export type GenericRelationship = {
-    constraintName: string
-    localColumns: string[]
-    referencedTableName: string
-    referencedColumns: string[]
-    isOneToOne?: boolean
+export interface GenericRelationship {
+  constraintName: string;
+  localColumns: string[];
+  referencedTableName: string;
+  referencedColumns: string[];
+  isOneToOne?: boolean;
 }
 
-export type GenericTable = {
-    Row: Record<string, unknown>
-    Insert: Record<string, unknown>
-    Update: Record<string, unknown>
-    Relationships?: GenericRelationship[]
+export interface GenericTable {
+  Row: Record<string, unknown>;
+  Insert: Record<string, unknown>;
+  Update: Record<string, unknown>;
+  Relationships?: GenericRelationship[];
 }
 
-export type GenericDatabase = {
-    Tables: Record<string, GenericTable>
+export interface GenericDatabase {
+  Tables: Record<string, GenericTable>;
 }

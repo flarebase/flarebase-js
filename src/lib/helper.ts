@@ -1,19 +1,19 @@
-import type { FlarebaseClientOptions } from "./types";
+import type { FlarebaseClientOptions } from './types';
 
 export function applySettingDefaults(
-    options: FlarebaseClientOptions,
+  options: FlarebaseClientOptions,
 ): Required<FlarebaseClientOptions> {
-    const {
-        global: globalOptions,
-    } = options;
+  const {
+    global: globalOptions,
+  } = options;
 
-    const result: Required<FlarebaseClientOptions> = {
-        global: {
-            ...globalOptions,
-        },
-        env: '',
-        localDev: {},
-    }
+  const result: Required<FlarebaseClientOptions> = {
+    global: {
+      ...globalOptions,
+    },
+    env: '',
+    localDev: {},
+  };
 
-    return result;
+  return result;
 }
