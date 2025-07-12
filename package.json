@@ -1,6 +1,6 @@
 {
   "name": "@flarebasejs/flarebase-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Flarebase JavaScript Client for Flarebase",
   "author": "Flarebase",
   "homepage": "https://github.com/flarebase/flarebase-js",
