@@ -37,6 +37,10 @@
     "type-check": "tsc --noEmit",
     "prepublish": "pnpm run build && pnpm run test && pnpm run type-check"
   },
+  "dependencies": {
+    "@flarebasejs/database-js": "0.0.3",
+    "@flarebasejs/storage-js": "0.0.3"
+  },
   "devDependencies": {
     "@nyxb/eslint-config": "^3.1.0",
     "eslint": "^9.27.0",

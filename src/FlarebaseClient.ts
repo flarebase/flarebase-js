@@ -1,6 +1,6 @@
 import type { Fetch, FlarebaseClientOptions, GenericDatabase } from './lib/types';
-import { DatabaseClient } from '@flarebase/database-js';
-import { StorageClient } from '@flarebase/storage-js';
+import { DatabaseClient } from '@flarebasejs/database-js';
+import { StorageClient } from '@flarebasejs/storage-js';
 import { fetchWithAuth } from './lib/fetch';
 import { applySettingDefaults } from './lib/helper';
 
